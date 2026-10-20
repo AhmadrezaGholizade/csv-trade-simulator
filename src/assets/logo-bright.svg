@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 280 330">
+  <circle cx="30" cy="300" r="23" fill="#EFF1F3"/>
+  <circle cx="30" cy="250" r="23" fill="#EFF1F3"/>
+  <path d="
+    M 30 200
+    L 30 150
+    L 80 150
+    L 80 300
+    L 130 300
+    L 130 150
+    L 180 150
+    L 180 300
+    L 230 300
+    L 230 50
+  " 
+  stroke="#EFF1F3" 
+  stroke-width="46" 
+  fill="none" 
+  stroke-linecap="round"
+  stroke-linejoin="round"/>
+  <polygon points="230,10 190,60 270,60" fill="#EFF1F3"/>
+</svg>

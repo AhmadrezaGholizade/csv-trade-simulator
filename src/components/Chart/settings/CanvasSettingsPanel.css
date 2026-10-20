@@ -1,0 +1,304 @@
+.sim-canvas-settings-panel {
+  width: 100%;
+  min-width: 0;
+}
+
+.sim-canvas-setting-row {
+  min-height: 50px;
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  color: var(--app-text);
+  font-size: 14px;
+}
+
+.sim-canvas-setting-label,
+.sim-canvas-setting-control {
+  display: flex;
+  align-items: center;
+}
+
+.sim-canvas-setting-label {
+  gap: 9px;
+  white-space: nowrap;
+}
+
+.sim-canvas-setting-row-disabled .sim-canvas-setting-label > span {
+  color: var(--text-dim);
+}
+
+.sim-canvas-setting-row-disabled .sim-canvas-setting-control {
+  opacity: 0.42;
+  filter: saturate(0.45);
+}
+
+.sim-canvas-setting-control {
+  gap: 8px;
+  min-width: 0;
+}
+
+.sim-canvas-select-wrap,
+.sim-canvas-style-wrap {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.sim-canvas-select-button {
+  width: 150px;
+  height: 36px;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  padding: 0 34px 0 10px;
+  background: var(--surface-0);
+  color: var(--app-text);
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  position: relative;
+}
+
+.sim-canvas-select-button[aria-expanded='true'],
+.sim-canvas-control-active {
+  border-color: #2962ff !important;
+  box-shadow: 0 0 0 1px #2962ff;
+}
+
+.sim-canvas-select-arrow {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  width: 30px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  transition: transform 120ms ease;
+}
+
+.sim-canvas-select-button[aria-expanded='true'] .sim-canvas-select-arrow {
+  transform: rotate(180deg);
+}
+
+.sim-canvas-select-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 150px;
+  padding: 5px 0;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background: var(--surface-0);
+  box-shadow: 0 10px 28px var(--shadow-deep);
+  z-index: 5100;
+}
+
+.sim-canvas-select-wrap[data-select='textSize'] .sim-canvas-select-menu {
+  top: auto;
+  bottom: 40px;
+}
+
+.sim-canvas-select-menu button {
+  width: 100%;
+  height: 34px;
+  padding: 0 11px;
+  border: 0;
+  background: transparent;
+  color: var(--app-text);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.sim-canvas-select-menu button:hover,
+.sim-canvas-select-option-active {
+  background: #2962ff !important;
+  color: #fff !important;
+}
+
+.sim-canvas-color-wrap {
+  z-index: 1;
+}
+
+.sim-canvas-color-wrap:has(.sim-chart-color-popover),
+.sim-canvas-style-wrap:has(.sim-canvas-style-menu),
+.sim-canvas-select-wrap:has(.sim-canvas-select-menu) {
+  z-index: 5200;
+}
+
+.sim-canvas-color-wrap > .sim-chart-color-popover {
+  left: auto;
+  right: 0;
+}
+
+.sim-canvas-color-wrap[data-color-key='scaleText'] > .sim-chart-color-popover,
+.sim-canvas-color-wrap[data-color-key='scaleLine'] > .sim-chart-color-popover {
+  top: auto;
+  bottom: 42px;
+}
+
+.sim-canvas-color-button,
+.sim-canvas-style-button {
+  height: 36px;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--surface-1) 88%, transparent);
+  color: var(--app-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.sim-canvas-color-button:not(:disabled),
+.sim-canvas-style-button:not(:disabled) {
+  border-color: color-mix(in srgb, var(--text-muted) 34%, var(--border-soft));
+  background: color-mix(in srgb, var(--surface-1) 94%, var(--app-text) 2%);
+}
+
+.sim-canvas-color-button:disabled,
+.sim-canvas-style-button:disabled {
+  cursor: not-allowed;
+}
+
+.sim-canvas-color-button {
+  width: 36px;
+}
+
+.sim-canvas-color-button-line {
+  width: 76px;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.sim-canvas-color-chip {
+  width: 25px;
+  height: 25px;
+  border-radius: 3px;
+  flex: 0 0 25px;
+}
+
+.sim-canvas-line-preview,
+.sim-canvas-style-sample {
+  width: 30px;
+  height: 10px;
+  display: block;
+  color: var(--line-color, currentColor);
+  position: relative;
+}
+
+.sim-canvas-line-preview::after,
+.sim-canvas-style-sample::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  border-top-width: var(--line-width, 1px);
+  border-top-color: currentColor;
+}
+
+.sim-canvas-line-solid::after {
+  border-top-style: solid;
+}
+
+.sim-canvas-line-dashed::after {
+  border-top-style: dashed;
+}
+
+.sim-canvas-line-dotted::after {
+  border-top-style: dotted;
+}
+
+.sim-canvas-style-button {
+  width: 36px;
+  padding: 0 3px;
+}
+
+.sim-canvas-style-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 126px;
+  padding: 5px;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background: var(--surface-0);
+  box-shadow: 0 10px 28px var(--shadow-deep);
+  z-index: 5100;
+}
+
+.sim-canvas-style-menu button {
+  width: 100%;
+  height: 34px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--app-text);
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sim-canvas-style-menu button:hover,
+.sim-canvas-style-option-active {
+  background: var(--surface-soft) !important;
+}
+
+.sim-canvas-scales-section {
+  margin-top: 24px !important;
+}
+
+.sim-chart-color-thickness {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.sim-chart-color-thickness button {
+  height: 32px;
+  border: 0;
+  border-right: 1px solid var(--border-soft);
+  background: var(--surface-0);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0 11px;
+}
+
+.sim-chart-color-thickness button:last-child {
+  border-right: 0;
+}
+
+.sim-chart-color-thickness button span {
+  display: block;
+  width: 28px;
+  min-height: 1px;
+  background: currentColor;
+}
+
+.sim-chart-color-thickness-active {
+  background: #2962ff !important;
+  color: #fff;
+}
+
+@media (max-width: 680px) {
+  .sim-canvas-setting-row {
+    grid-template-columns: 112px minmax(0, 1fr);
+  }
+
+  .sim-canvas-select-button,
+  .sim-canvas-select-menu {
+    width: 132px;
+  }
+}

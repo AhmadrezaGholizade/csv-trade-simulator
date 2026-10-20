@@ -1,0 +1,67 @@
+:root {
+  --palette-ink: #223843;
+  --palette-paper: #EFF1F3;
+  --palette-mist: #DBD3D8;
+  --palette-sand: #D8B4A0;
+  --palette-coral: #D77A61;
+  --color-ink: var(--palette-ink);
+  --color-paper: var(--palette-paper);
+  --color-mist: var(--palette-mist);
+  --color-sand: var(--palette-sand);
+  --color-coral: var(--palette-coral);
+
+  --trade-buy: #089981;
+  --trade-buy-soft: rgba(8, 153, 129, 0.14);
+  --trade-buy-border: rgba(8, 153, 129, 0.42);
+  --trade-sell: #f23645;
+  --trade-sell-soft: rgba(242, 54, 69, 0.14);
+  --trade-sell-border: rgba(242, 54, 69, 0.42);
+
+  --chart-bg: #ffffff;
+  --chart-grid: rgba(34, 56, 67, 0.08);
+  --chart-axis: rgba(34, 56, 67, 0.12);
+  --chart-text: #131722;
+}
+
+:root,
+[data-theme='dark'] {
+  --app-bg: var(--palette-ink);
+  --app-text: var(--palette-paper);
+  --surface-0: #182933;
+  --surface-1: #203541;
+  --surface-2: #294553;
+  --surface-soft: rgba(239, 241, 243, 0.07);
+  --border-soft: rgba(239, 241, 243, 0.12);
+  --text-muted: rgba(219, 211, 216, 0.68);
+  --text-dim: rgba(219, 211, 216, 0.48);
+  --accent: var(--palette-coral);
+  --accent-soft: rgba(215, 122, 97, 0.18);
+  --highlight: var(--palette-sand);
+  --shadow-deep: rgba(0, 0, 0, 0.38);
+  --chart-panel: #182933;
+  --chart-toolbar: #182933;
+  --tool-icon: rgba(219, 211, 216, 0.78);
+  --tool-icon-active: var(--palette-paper);
+  --tool-shortcut: rgba(219, 211, 216, 0.5);
+}
+
+[data-theme='light'] {
+  --app-bg: #f7f8f8;
+  --app-text: #223843;
+  --surface-0: #ffffff;
+  --surface-1: #f6f7f7;
+  --surface-2: #eceeef;
+  --surface-soft: rgba(34, 56, 67, 0.05);
+  --border-soft: rgba(34, 56, 67, 0.12);
+  --text-muted: rgba(34, 56, 67, 0.72);
+  --text-dim: rgba(34, 56, 67, 0.48);
+  --accent: var(--palette-coral);
+  --accent-soft: rgba(215, 122, 97, 0.14);
+  --highlight: #b98469;
+  --shadow-deep: rgba(34, 56, 67, 0.14);
+  --chart-panel: #ffffff;
+  --chart-toolbar: #ffffff;
+  --tool-icon: rgba(34, 56, 67, 0.82);
+  --tool-icon-active: #223843;
+  --tool-shortcut: rgba(34, 56, 67, 0.56);
+}

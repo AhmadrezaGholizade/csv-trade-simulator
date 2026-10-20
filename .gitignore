@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.local
+.env
+.env.*
+!.env.example
+*.csv
+*.tsv
+!public/examples/sample.csv
+*.log
+.DS_Store

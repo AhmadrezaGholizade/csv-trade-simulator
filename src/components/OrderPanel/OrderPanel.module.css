@@ -1,0 +1,550 @@
+.panel {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--surface-1);
+  border-left: 1px solid var(--surface-2);
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  overflow: hidden;
+  direction: rtl;
+}
+
+/* ── Order Entry ─────────────────────────────── */
+.entry {
+  padding: 12px;
+  border-bottom: 1px solid var(--surface-2);
+}
+
+.sectionTitle {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.typeTabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.orderKindGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.kindBtn {
+  background: var(--surface-0);
+  border: 1px solid var(--surface-2);
+  border-radius: 5px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 10px;
+  padding: 5px 4px;
+}
+
+.kindBtn:hover,
+.activeKind {
+  border-color: var(--accent);
+  color: var(--app-text);
+  background: var(--surface-soft);
+}
+
+button{
+  font-family: inherit;
+}
+
+
+.tabBuy,
+.tabSell {
+  padding: 6px 0;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tabBuy {
+  background: var(--trade-buy-soft);
+  border-color: var(--trade-buy-border);
+  color: var(--trade-buy);
+}
+.tabBuy:hover,
+.tabBuy.activeTab {
+  background: var(--trade-buy);
+  border-color: var(--trade-buy);
+  color: #EFF1F3;
+  box-shadow: 0 0 8px rgba(8,153,129,0.25);
+}
+
+.tabSell {
+  background: var(--trade-sell-soft);
+  border-color: var(--trade-sell-border);
+  color: var(--trade-sell);
+}
+.tabSell:hover,
+.tabSell.activeTab {
+  background: var(--trade-sell);
+  border-color: var(--trade-sell);
+  color: #EFF1F3;
+  box-shadow: 0 0 8px rgba(242,54,69,0.25);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.fieldStack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fieldLabel {
+  color: var(--text-dim);
+  font-size: 10px;
+  width: 36px;
+  flex-shrink: 0;
+}
+
+.fieldInput {
+  flex: 1;
+  background: var(--surface-0);
+  border: 1px solid var(--surface-2);
+  border-radius: 4px;
+  color: var(--app-text);
+  font-family: inherit;
+  font-size: 12px;
+  padding: 4px 6px;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.fieldInput::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+.fieldInput:focus { border-color: var(--text-dim); }
+
+.priceInputWrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.priceInputActive {
+  border-color: var(--accent);
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 12%, transparent), transparent 44%),
+    var(--surface-0);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.pickIcon {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  display: none;
+  color: var(--accent);
+  pointer-events: none;
+}
+
+.pickIcon svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.priceInputActive + .pickIcon {
+  display: block;
+}
+
+.priceInputActive ~ .pickIcon {
+  display: block;
+}
+
+.fieldError {
+  margin-right: 42px;
+  color: var(--trade-sell);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.levelInputWrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.levelInput {
+  padding-left: 56px;
+}
+
+.levelSwitch {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 15px;
+  padding: 0;
+  border: 1px solid var(--surface-2);
+  border-radius: 999px;
+  background: var(--surface-1);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.levelInputWrap .pickIcon {
+  left: 36px;
+}
+
+.levelSwitch span {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: 3px;
+  top: 2px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  transition: left 0.15s, background 0.15s;
+}
+
+.levelSwitchOn {
+  background: color-mix(in srgb, var(--accent) 30%, var(--surface-0));
+  border-color: var(--accent);
+}
+
+.levelSwitchOn span {
+  left: 10px;
+  background: var(--accent);
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.submitBuy {
+  background: var(--trade-buy);
+  color: #EFF1F3;
+  border: 1px solid var(--trade-buy);
+}
+.submitBuy:hover {
+  background: #047a68;
+  box-shadow: 0 0 12px rgba(8,153,129,0.3);
+}
+
+.submitSell {
+  background: var(--trade-sell);
+  color: #EFF1F3;
+  border: 1px solid var(--trade-sell);
+}
+.submitSell:hover {
+  background: #d91f30;
+  box-shadow: 0 0 12px rgba(242,54,69,0.3);
+}
+
+.listScroll {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  border-bottom: 1px solid var(--surface-2);
+}
+
+.listScroll::-webkit-scrollbar { width: 4px; }
+.listScroll::-webkit-scrollbar-thumb { background: rgba(239, 241, 243, 0.16); border-radius: 2px; }
+.listScroll::-webkit-scrollbar-track { background: transparent; }
+
+/* ── Open Trades ─────────────────────────────── */
+.trades {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pendingList {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px solid var(--surface-2);
+}
+
+.noTrades {
+  color: var(--text-dim);
+  font-size: 11px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.tradeCard {
+  background: var(--surface-0);
+  border: 1px solid var(--surface-2);
+  border-radius: 5px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color 0.15s;
+}
+.tradeCard:hover { border-color: rgba(239, 241, 243, 0.16); }
+
+.tradeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tradeBadge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.buy { background: var(--trade-buy-soft); color: var(--trade-buy); border: 1px solid var(--trade-buy-border); }
+.sell { background: var(--trade-sell-soft); color: var(--trade-sell); border: 1px solid var(--trade-sell-border); }
+
+.tradeId {
+  font-size: 9px;
+  color: var(--text-dim);
+}
+
+.tradeRow {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-dim);
+  font-size: 10px;
+}
+
+.tradeRowValue {
+  color: var(--text-muted);
+}
+
+.pnl {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+  padding-top: 2px;
+}
+.pnlPos { color: var(--trade-buy); }
+.pnlNeg { color: var(--trade-sell); }
+
+.partialBox {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.partialQuick {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.partialQuickBtn,
+.partialBtn {
+  border: 1px solid rgba(109, 63, 209, 0.34);
+  background: rgba(109, 63, 209, 0.08);
+  color: #bda8ff;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 10px;
+  cursor: pointer;
+  padding: 3px 0;
+}
+
+.partialQuickBtn:hover,
+.partialBtn:hover:not(:disabled) {
+  background: rgba(109, 63, 209, 0.16);
+  border-color: rgba(189, 168, 255, 0.55);
+  color: #d7ccff;
+}
+
+.partialCustom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 52px;
+  gap: 4px;
+}
+
+.partialInput {
+  width: 100%;
+  min-width: 0;
+  background: rgba(239, 241, 243, 0.04);
+  border: 1px solid rgba(239, 241, 243, 0.12);
+  border-radius: 4px;
+  color: var(--color-paper);
+  font-family: inherit;
+  font-size: 10px;
+  padding: 3px 6px;
+  outline: none;
+}
+
+.partialInput:focus {
+  border-color: rgba(189, 168, 255, 0.55);
+}
+
+.partialBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.closeBtn {
+  width: 100%;
+  margin-top: 4px;
+  padding: 3px 0;
+  background: transparent;
+  border: 1px solid rgba(239, 241, 243, 0.16);
+  border-radius: 4px;
+  color: var(--text-dim);
+  font-size: 10px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.closeBtn:hover {
+  background: var(--surface-2);
+  color: var(--color-paper);
+  border-color: var(--text-dim);
+}
+
+.miniCloseBtn {
+  background: transparent;
+  border: 1px solid var(--surface-2);
+  border-radius: 4px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 10px;
+  padding: 2px 6px;
+}
+
+.miniCloseBtn:hover {
+  border-color: var(--trade-sell);
+  color: var(--trade-sell);
+}
+
+/* ── Balance Footer ──────────────────────────── */
+.footer {
+  padding: 10px 12px;
+  border-top: 1px solid var(--surface-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerLabel {
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.balanceVal {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-sand);
+}
+
+@media (max-width: 900px) {
+  .panel {
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    border-left: none;
+    border-top: 1px solid var(--surface-2);
+    overflow: visible;
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+    padding: 12px 14px;
+  }
+
+  .sectionTitle,
+  .typeTabs,
+  .orderKindGrid,
+  .fieldGroup,
+  .submitBtn {
+    grid-column: span 1;
+    margin-bottom: 0;
+  }
+
+  .sectionTitle {
+    grid-column: 1 / -1;
+  }
+
+  .submitBtn {
+    align-self: end;
+    min-height: 38px;
+  }
+
+  .listScroll,
+  .pendingList,
+  .trades {
+    max-height: none;
+    overflow: visible;
+    flex: 0 0 auto;
+  }
+
+  .listScroll {
+    min-height: 0;
+  }
+
+  .footer {
+    position: sticky;
+    bottom: 0;
+    background: var(--surface-1);
+  }
+}
+
+@media (max-width: 560px) {
+  .entry {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .typeTabs,
+  .orderKindGrid,
+  .fieldGroup,
+  .submitBtn {
+    grid-column: 1 / -1;
+  }
+
+  .listScroll,
+  .pendingList,
+  .trades {
+    max-height: none;
+  }
+}
